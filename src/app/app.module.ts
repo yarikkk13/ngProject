@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageComponent } from './components/page/page.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { SectionComponent } from './components/section/section.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { PageComponent } from './components/page/page.component';
     HeaderComponent,
     LogoComponent,
     FooterComponent,
-    PageComponent
+    PageComponent,
+    BreadcrumbComponent,
+    SectionComponent
   ],
   imports: [
     BrowserModule
