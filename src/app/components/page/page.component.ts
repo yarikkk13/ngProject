@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {ICourse} from "../../models/Course";
 
 @Component({
   selector: 'app-page',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  course: ICourse = {
+    id: 1,
+    title: '',
+    creationTime: 1,
+    duration: 1,
+    description: ''
+  };
+
+  @Output() destruction = new EventEmitter<any>();
+
+  destruct(): void {
+    console.log(this.destruction);
+  };
+
+  editCourse: string = 'Edit';
+  deleteCourse: string = 'Delete';
 
   ngOnInit(): void {
   }

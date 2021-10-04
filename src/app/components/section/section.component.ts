@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ICourse} from "../../models/Course";
 
 @Component({
   selector: 'app-section',
@@ -7,13 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
-  search = 'Search';
+  currentCourse: ICourse = {
+    id: 1,
+    title: 'Video course 1. Name tag.',
+    creationTime: 60,
+    duration: 60,
+    description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
+      '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
+      '        society.Initially, course descriptions are written when a new program is being developed or when developing a\n' +
+      '        new course.'
+  };
 
-  add = 'Add course';
+  search: string = 'Search';
 
-  load = 'LOAD MORE';
+  add: string = 'Add course';
 
-  constructor() {
+  load: string = 'LOAD MORE';
+
+  searchText: string = '';
+
+  deleted(): void {
+    console.log('deleted');
+  }
+
+  showTheSearching(searchText: string): void {
+    console.log(searchText)
+  }
+
+  showMore(): void {
+    console.log(this.load)
   }
 
   ngOnInit(): void {
