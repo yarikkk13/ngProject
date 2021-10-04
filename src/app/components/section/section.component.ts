@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
+  search = 'Search';
+
+  add = 'Add course';
+
+  load = 'LOAD MORE';
+
   constructor() {
   }
 
