@@ -7,11 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  videoCurse = 'VIDEO COURSE';
+  videoCurse:string = 'VIDEO COURSE';
 
-  userLogin = 'User login';
+  userLogin:string = 'User login';
 
-  logOff = 'Log off';
+  logOff:string = 'Log off';
 
   ngOnInit(): void {
   }

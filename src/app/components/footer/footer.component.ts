@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  footer = 'Copyright @ VideoCourses. All rights reserved';
+  footer: string = 'Copyright @ VideoCourses. All rights reserved';
 
   ngOnInit(): void {
   }

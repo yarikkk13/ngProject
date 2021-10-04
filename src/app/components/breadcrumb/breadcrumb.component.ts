@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BreadcrumbComponent implements OnInit {
 
-  courses = 'Courses';
+  courses:string = 'Courses';
 
   ngOnInit(): void {
   }
