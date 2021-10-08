@@ -1,45 +1,54 @@
-import {Component, OnInit} from '@angular/core';
-import {ICourse} from "../../models/Course";
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ICourse } from "../../models/Course";
+import { CoursesService } from "../../services/courses.service";
 
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css']
 })
-export class SectionComponent implements OnInit {
 
-  currentCourse: ICourse = {
-    id: 1,
-    title: 'Video course 1. Name tag.',
-    creationTime: 60,
-    duration: 60,
-    description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
-      '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
-      '        society.Initially, course descriptions are written when a new program is being developed or when developing a\n' +
-      '        new course.'
+export class SectionComponent implements OnInit, OnChanges {
+
+  public courses: ICourse[];
+
+  public search: string = 'Search';
+
+  public add: string = 'Add course';
+
+  public load: string = 'LOAD MORE';
+
+  public searchText: string = '';
+
+  public trackByIndex = (index: number): number => {
+    return index;
   };
 
-  search: string = 'Search';
+  public edit(text: string): void {
+    console.log(text)
+  };
 
-  add: string = 'Add course';
-
-  load: string = 'LOAD MORE';
-
-  searchText: string = '';
-
-  deleted(): void {
-    console.log('deleted');
+  public delete(text: string): void {
+    console.log(text);
   }
 
-  showTheSearching(searchText: string): void {
+  public showTheSearching(searchText: string): void {
     console.log(searchText)
   }
 
-  showMore(): void {
+  public showMore(): void {
     console.log(this.load)
   }
 
-  ngOnInit(): void {
+  constructor(private courseService: CoursesService) {
   }
 
+  ngOnInit(): void {
+    this.courses = this.courseService.getCourses()
+    console.log('init')
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('changes')
+  }
 }

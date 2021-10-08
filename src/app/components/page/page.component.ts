@@ -1,5 +1,5 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {ICourse} from "../../models/Course";
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { ICourse } from "../../models/Course";
 
 @Component({
   selector: 'app-page',
@@ -9,22 +9,22 @@ import {ICourse} from "../../models/Course";
 export class PageComponent implements OnInit {
 
   @Input()
-  course: ICourse = {
-    id: 1,
-    title: '',
-    creationTime: 1,
-    duration: 1,
-    description: ''
+  course: ICourse;
+
+  @Output() eventOfDeleting = new EventEmitter<any>();
+
+  public deleteEvent(): void {
+    this.eventOfDeleting.emit(this.course.id)
   };
 
-  @Output() destruction = new EventEmitter<any>();
+  @Output() public eventOfEditing = new EventEmitter<any>();
 
-  destruct(): void {
-    console.log(this.destruction);
-  };
+  public editEvent() {
+    this.eventOfEditing.emit(this.course.id)
+  }
 
-  editCourse: string = 'Edit';
-  deleteCourse: string = 'Delete';
+  public editCourse: string = 'Edit';
+  public deleteCourse: string = 'Delete';
 
   ngOnInit(): void {
   }

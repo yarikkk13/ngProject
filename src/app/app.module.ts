@@ -8,7 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageComponent } from './components/page/page.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { SectionComponent } from './components/section/section.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
