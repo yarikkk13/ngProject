@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  videoCurse:string = 'VIDEO COURSE';
+  public videoCurse: string = 'VIDEO COURSE';
 
-  userLogin:string = 'User login';
+  public userLogin: string = 'User login';
 
-  logOff:string = 'Log off';
+  public logOff: string = 'Log off';
 
   ngOnInit(): void {
   }
