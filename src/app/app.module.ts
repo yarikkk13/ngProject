@@ -9,6 +9,8 @@ import { PageComponent } from './components/page/page.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { SectionComponent } from './components/section/section.component';
 import { FormsModule } from "@angular/forms";
+import { DurationPipe } from './pipes/duration.pipe';
+import { CreationDateDirective } from './directives/creation-date.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from "@angular/forms";
     FooterComponent,
     PageComponent,
     BreadcrumbComponent,
-    SectionComponent
+    SectionComponent,
+    DurationPipe,
+    CreationDateDirective
   ],
   imports: [
     BrowserModule,

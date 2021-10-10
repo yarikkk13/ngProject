@@ -12,8 +12,11 @@
   <div class="d-flex justify-content-end" style="padding-bottom: 15px">
     <button type="button" class="btn btn-primary"><i class="bi bi-plus-lg"></i> {{ add }}</button>
   </div>
-  <app-page (eventOfEditing)="edit($event)" [course]="c" *ngFor="let c of courses; trackBy: trackByIndex"
-            (eventOfDeleting)="delete($event)"></app-page>
+  <div *ngIf="courses;else other">
+    <app-page (eventOfEditing)="edit($event)" [course]="c" *ngFor="let c of courses; trackBy: trackByIndex"
+              (eventOfDeleting)="delete($event)"></app-page>
+  </div>
+  <ng-template #other><p class="bg-white d-flex justify-content-around">{{ noData }}</p></ng-template>
   <div class="bg-white d-flex justify-content-center" style="margin-top: 15px">
     <a href="#" (click)="showMore()">{{ load }}</a>
   </div>

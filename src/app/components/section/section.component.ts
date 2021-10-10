@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { ICourse } from "../../models/Course";
-import { CoursesService } from "../../services/courses.service";
+import {ICourse} from "../../models/Course";
+import {CoursesService} from "../../services/courses.service";
 
 @Component({
   selector: 'app-section',
@@ -11,13 +11,15 @@ import { CoursesService } from "../../services/courses.service";
 
 export class SectionComponent implements OnInit {
 
-  public courses: ICourse[];
+  public courses?: ICourse[];
 
   public search: string = 'Search';
 
   public add: string = 'Add course';
 
   public load: string = 'LOAD MORE';
+
+  public noData: string = 'No data.Feel free to add new course';
 
   public searchText: string = '';
 

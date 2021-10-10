@@ -1,10 +1,12 @@
-<div>
-  <div class="bg-white mb-2 mt-2">
+<div >
+
+  <div class="mb-2 mt-2"  [ngClass]="{topRated:course.topRated, notRated:!course.topRated}" >
     <div class="w-75 d-flex">
-      <h3 class="w-75">{{ course.title }}</h3>
+      <h3 class="w-75">{{ course.title | uppercase }}<i class="bi bi-star" [ngClass]="{invisible:!course.topRated}"></i>
+      </h3>
       <div class="w-25 d-flex  justify-content-evenly">
-        <p><i class="bi bi-clock"></i>{{course.duration}}</p>
-        <p><i class="bi bi-calendar3"></i>{{course.creationTime}}</p>
+        <p><i class="bi bi-clock"></i>{{ course.duration | duration }}</p>
+        <p><i class="bi bi-calendar3"></i>{{ course.creationTime | date }}</p>
       </div>
 
     </div>
@@ -18,4 +20,5 @@
       </div>
     </div>
   </div>
+
 </div>
