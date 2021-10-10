@@ -1,6 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ICourse } from "../../models/Course";
-import { CoursesService } from "../../services/courses.service";
+import {Component, OnInit} from '@angular/core';
+import {ICourse} from "../../models/Course";
+import {CoursesService} from "../../services/courses.service";
 
 @Component({
   selector: 'app-section',
@@ -8,7 +8,7 @@ import { CoursesService } from "../../services/courses.service";
   styleUrls: ['./section.component.css']
 })
 
-export class SectionComponent implements OnInit, OnChanges {
+export class SectionComponent implements OnInit {
 
   public courses: ICourse[];
 
@@ -45,10 +45,6 @@ export class SectionComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.courses = this.courseService.getCourses()
-    console.log('init')
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('changes')
+    console.log('init') //lifecycle hooks to understand the ordering
   }
 }

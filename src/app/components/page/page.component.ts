@@ -1,12 +1,12 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ICourse } from "../../models/Course";
+import {Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
+import {ICourse} from "../../models/Course";
 
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.css']
 })
-export class PageComponent implements OnInit {
+export class PageComponent implements OnInit, OnChanges {
 
   @Input()
   course: ICourse;
@@ -27,6 +27,15 @@ export class PageComponent implements OnInit {
   public deleteCourse: string = 'Delete';
 
   ngOnInit(): void {
+    this.log(`ngOnInit`); //lifecycle hooks to understand the ordering
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.log(`ngOnChanges`); //lifecycle hooks to understand the ordering
+  }
+
+  private log(msg: string) {
+    console.log(this.course.id + ". " + msg);
   }
 
 }
