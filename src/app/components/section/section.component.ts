@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ICourse} from "../../models/Course";
-import {CoursesService} from "../../services/courses.service";
+import { Component, OnInit } from '@angular/core';
+
+import { ICourse } from "../../models/Course";
+import { CoursesService } from "../../services/courses.service";
 
 @Component({
   selector: 'app-section',
