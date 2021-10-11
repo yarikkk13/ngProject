@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {ICourse} from "../models/Course";
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: string, ...args: unknown[]): unknown {
-
-    return null;
+  transform(array: ICourse[], textSearch: string): ICourse[] {
+    return array?.filter(course => course.title.includes(textSearch));
   }
 
 }

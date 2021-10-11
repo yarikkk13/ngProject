@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {ICourse} from "../../models/Course";
 import {CoursesService} from "../../services/courses.service";
+import {courses} from "../../mockArrays/mockCourses";
 
 @Component({
   selector: 'app-section',

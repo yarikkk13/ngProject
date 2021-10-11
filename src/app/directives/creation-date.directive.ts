@@ -10,7 +10,7 @@ export class CreationDateDirective {
 
   constructor(private elementRef: ElementRef) {
     // this.elementRef.nativeElement.style.border = "solid 1px black";
-    this.elementRef.nativeElement.style.border = "solid 1px green";
+    // this.elementRef.nativeElement.style.border = "solid 1px green";
     // if (this.courseDirective?.duration > 50) {
     //   this.elementRef.nativeElement.style.border = "solid 1px blue";
     // } else if

@@ -4,7 +4,7 @@ export const courses: ICourse[] = [
   {
     id: 1,
     title: 'first title course',
-    creationTime: new Date(2021, 2, 6),
+    creationTime: new Date(2021, 10, 6),
     duration: 32,
     description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
       '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
@@ -15,7 +15,7 @@ export const courses: ICourse[] = [
   {
     id: 2,
     title: 'second title course',
-    creationTime: new Date(2021, 10, 6),
+    creationTime: new Date(2021, 2, 6),
     duration: 72,
     description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
       '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
