@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
-import { ICourse } from "../../models/Course";
+import {ICourse} from "../../models/Course";
 
 @Component({
   selector: 'app-page',
@@ -24,6 +24,7 @@ export class PageComponent implements OnInit, OnChanges {
     this.eventOfEditing.emit(this.course.id)
   }
 
+  public videoCourse: string = 'Video Course '
   public editCourse: string = 'Edit';
   public deleteCourse: string = 'Delete';
 

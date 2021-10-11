@@ -1,8 +1,8 @@
-<div >
+<div appCreationDate [courseDirective]="course">
 
-  <div class="mb-2 mt-2"  [ngClass]="{topRated:course.topRated, notRated:!course.topRated}" >
+  <div class="mb-1 mt-1 pt-1 pb-1"  [ngClass]="{topRated:course.topRated, notRated:!course.topRated}" >
     <div class="w-75 d-flex">
-      <h3 class="w-75">{{ course.title | uppercase }}<i class="bi bi-star" [ngClass]="{invisible:!course.topRated}"></i>
+      <h3 class="w-75">{{videoCourse}} {{course.id}}. {{ course.title | uppercase }}<i class="bi bi-star" [ngClass]="{invisible:!course.topRated}"></i>
       </h3>
       <div class="w-25 d-flex  justify-content-evenly">
         <p><i class="bi bi-clock"></i>{{ course.duration | duration }}</p>

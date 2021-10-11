@@ -11,6 +11,8 @@ import { SectionComponent } from './components/section/section.component';
 import { FormsModule } from "@angular/forms";
 import { DurationPipe } from './pipes/duration.pipe';
 import { CreationDateDirective } from './directives/creation-date.directive';
+import { OrderByPipe } from './pipes/order-by.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CreationDateDirective } from './directives/creation-date.directive';
     BreadcrumbComponent,
     SectionComponent,
     DurationPipe,
-    CreationDateDirective
+    CreationDateDirective,
+    OrderByPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

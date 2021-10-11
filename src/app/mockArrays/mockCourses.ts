@@ -3,7 +3,7 @@ import {ICourse} from "../models/Course";
 export const courses: ICourse[] = [
   {
     id: 1,
-    title: 'video course 1. name tag.',
+    title: 'first title course',
     creationTime: new Date(2021, 2, 6),
     duration: 32,
     description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
@@ -14,7 +14,7 @@ export const courses: ICourse[] = [
   },
   {
     id: 2,
-    title: 'video course 2. name tag.',
+    title: 'second title course',
     creationTime: new Date(2021, 10, 6),
     duration: 72,
     description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
