@@ -6,18 +6,17 @@ import {ICourse} from "../models/Course";
 })
 export class CreationDateDirective {
   @Input()
-  courseDirective: ICourse;
+  directivesCourse: ICourse;
 
   constructor(private elementRef: ElementRef) {
-    // this.elementRef.nativeElement.style.border = "solid 1px black";
-    // this.elementRef.nativeElement.style.border = "solid 1px green";
-    // if (this.courseDirective?.duration > 50) {
-    //   this.elementRef.nativeElement.style.border = "solid 1px blue";
-    // } else if
-    // (this.courseDirective?.duration < 50) {
-    //   this.elementRef.nativeElement.style.border = "solid 1px green"
-    // }
+    const courseDate = this.directivesCourse.creationTime.getDate();
+    const currentDate = Date.now();
 
+    if (courseDate < currentDate && courseDate >= currentDate - 14) {
+      this.elementRef.nativeElement.style.border = "solid 1px green";
+    } else if (courseDate > currentDate) {
+      this.elementRef.nativeElement.style.border = "solid 1px blue";
+    }
   }
 
 }
