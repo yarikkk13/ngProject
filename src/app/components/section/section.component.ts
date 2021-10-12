@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 
 import {ICourse} from "../../models/Course";
 import {CoursesService} from "../../services/courses.service";
-import {courses} from "../../mockArrays/mockCourses";
 
 @Component({
   selector: 'app-section',
@@ -12,7 +11,7 @@ import {courses} from "../../mockArrays/mockCourses";
 
 export class SectionComponent implements OnInit {
 
-  public courses?: ICourse[];
+  public courses?: ICourse[] | [];
 
   public search: string = 'Search';
 
@@ -39,8 +38,8 @@ export class SectionComponent implements OnInit {
   public showTheSearching(searchText: string): any {
 
     console.log(searchText)
-    console.log(this.courses?.filter(course => course.title.includes(searchText)))
-    return this.courses?.filter(course => course.title.includes(searchText))
+    // console.log(this.courses?.filter(course => course.title.includes(searchText)))
+    // return this.courses?.filter(course => course.title.includes(searchText))
   }
 
   public showMore(): void {
