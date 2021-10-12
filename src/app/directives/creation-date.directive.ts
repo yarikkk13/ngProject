@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input} from '@angular/core';
+import {Directive, ElementRef, Input } from '@angular/core';
 import {ICourse} from "../models/Course";
 
 @Directive({
@@ -9,7 +9,7 @@ export class CreationDateDirective {
   directivesCourse: ICourse;
 
   constructor(private elementRef: ElementRef) {
-    const courseDate = this.directivesCourse.creationTime.getDate();
+    const courseDate = this.directivesCourse?.creationTime.getDate();
     const currentDate = Date.now();
 
     if (courseDate < currentDate && courseDate >= currentDate - 14) {

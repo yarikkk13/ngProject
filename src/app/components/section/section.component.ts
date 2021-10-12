@@ -11,7 +11,7 @@ import {CoursesService} from "../../services/courses.service";
 
 export class SectionComponent implements OnInit {
 
-  public courses?: ICourse[] | [];
+  public courses: ICourse[];
 
   public search: string = 'Search';
 
