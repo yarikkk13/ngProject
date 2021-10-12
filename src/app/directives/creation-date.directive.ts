@@ -9,7 +9,7 @@ export class CreationDateDirective {
   directivesCourse: ICourse;
 
   constructor(private elementRef: ElementRef) {
-    const courseDate = this.directivesCourse?.creationTime.getDate();
+    const courseDate = this.directivesCourse?.creationTime.getTime();
     const currentDate = Date.now();
     const fourteenDays = 1209600000;
 
