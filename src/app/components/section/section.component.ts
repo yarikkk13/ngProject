@@ -36,9 +36,11 @@ export class SectionComponent implements OnInit {
   }
 
   public showTheSearching(searchText: string): any {
-
     console.log(searchText)
-    // console.log(this.courses?.filter(course => course.title.includes(searchText)))
+
+    if (!searchText) {
+      return this.courses = this.courseService.getCourses()
+    }
     return this.courses = this.courses?.filter(course => course.title.includes(searchText))
   }
 
