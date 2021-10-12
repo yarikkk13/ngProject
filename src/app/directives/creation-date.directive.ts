@@ -11,8 +11,9 @@ export class CreationDateDirective {
   constructor(private elementRef: ElementRef) {
     const courseDate = this.directivesCourse?.creationTime.getDate();
     const currentDate = Date.now();
+    const fourteenDays = 1209600000;
 
-    if (courseDate < currentDate && courseDate >= currentDate - 14) {
+    if (courseDate < currentDate && courseDate >= currentDate - fourteenDays) {
       this.elementRef.nativeElement.style.border = "solid 1px green";
     } else if (courseDate > currentDate) {
       this.elementRef.nativeElement.style.border = "solid 1px blue";
