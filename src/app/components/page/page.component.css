@@ -1,0 +1,9 @@
+.invisible {
+  display: none
+}
+.topRated {
+  background: aquamarine;
+}
+.notRated{
+  background: white;
+}

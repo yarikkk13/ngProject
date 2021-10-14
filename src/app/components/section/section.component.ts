@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+
 import {ICourse} from "../../models/Course";
 import {CoursesService} from "../../services/courses.service";
 
@@ -18,6 +19,8 @@ export class SectionComponent implements OnInit {
 
   public load: string = 'LOAD MORE';
 
+  public noData: string = 'No data.Feel free to add new course';
+
   public searchText: string = '';
 
   public trackByIndex = (index: number): number => {
@@ -32,8 +35,13 @@ export class SectionComponent implements OnInit {
     console.log(text);
   }
 
-  public showTheSearching(searchText: string): void {
+  public showTheSearching(searchText: string): ICourse[] {
     console.log(searchText)
+
+    if (!searchText) {
+      return this.courses = this.courseService.getCourses()
+    }
+    return this.courses = this.courses?.filter(course => course.title.includes(searchText))
   }
 
   public showMore(): void {
