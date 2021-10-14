@@ -7,7 +7,7 @@ import { ICourse } from "../models/Course";
 export class FilterPipe implements PipeTransform {
 
   transform(array: ICourse[], textSearch: string): ICourse[] {
-    return array?.filter(course => course.title.includes(textSearch));
+    return array?.filter(course => course.title.includes(textSearch.toLowerCase()));
   }
 
 }
