@@ -9,9 +9,9 @@ export class CreationDateDirective {
   directivesCourse: ICourse;
 
   constructor(private elementRef: ElementRef) {
-    const courseDate = this.directivesCourse?.creationTime.getTime();
-    const currentDate = Date.now();
-    const fourteenDays = 1209600000;
+    const courseDate:number = this.directivesCourse?.creationTime.getTime();
+    const currentDate:number = Date.now();
+    const fourteenDays:number = 1209600000;
 
     if (courseDate < currentDate && courseDate >= currentDate - fourteenDays) {
       this.elementRef.nativeElement.style.border = "solid 1px green";
