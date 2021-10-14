@@ -20,7 +20,8 @@
                 (eventOfDeleting)="delete($event)"></app-page>
     </div>
   </ng-template>
-  <div class="bg-white d-flex justify-content-center" style="margin-top: 15px">
+  <div class="bg-white d-flex justify-content-center" style="margin-top: 15px" *ngIf="courses?.length;else noShowMore">
     <a href="#" (click)="showMore()">{{ load }}</a>
   </div>
+  <ng-template #noShowMore></ng-template>
 </div>
