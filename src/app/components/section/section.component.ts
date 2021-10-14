@@ -35,7 +35,7 @@ export class SectionComponent implements OnInit {
     console.log(text);
   }
 
-  public showTheSearching(searchText: string): any {
+  public showTheSearching(searchText: string): ICourse[] {
     console.log(searchText)
 
     if (!searchText) {
