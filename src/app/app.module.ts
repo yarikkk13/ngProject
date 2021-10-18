@@ -14,6 +14,7 @@ import { CreationDateDirective } from './directives/creation-date.directive';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/login/login.component';
+import { IfAuthenticatedDirective } from './directives/if-authenticated.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './components/login/login.component';
     CreationDateDirective,
     OrderByPipe,
     FilterPipe,
-    LoginComponent
+    LoginComponent,
+    IfAuthenticatedDirective
   ],
   imports: [
     BrowserModule,
