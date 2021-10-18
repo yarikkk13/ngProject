@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   logOut(): any {
-    return null;
+    localStorage.clear()
   }
 
   isAuthenticated(): boolean {
