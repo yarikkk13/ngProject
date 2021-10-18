@@ -1,6 +1,7 @@
-import {Injectable} from '@angular/core';
-import {courses} from "../mockArrays/mockCourses";
-import {ICourse} from "../models/Course";
+import { Injectable } from '@angular/core';
+
+import { courses } from "../mockArrays/mockCourses";
+import { ICourse } from "../models/Course";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class CoursesService {
 
   createCourse(id: number, title: string, creationTime: Date, duration: number, description: string, topRated: boolean): ICourse[] {
     const newCourse: ICourse = {id, title, creationTime, duration, description, topRated}
-    let list:ICourse[] = courses;
+    let list: ICourse[] = courses;
     list.push(newCourse)
     return list
   }
