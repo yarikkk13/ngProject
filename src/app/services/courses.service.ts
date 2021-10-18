@@ -26,7 +26,7 @@ export class CoursesService {
     return course
   }
 
-  removeCourse(courses: ICourse): any {
-    return null
+  removeCourse(id: string): ICourse[] {
+    return courses.filter(course => course.id !== +id)
   }
 }
