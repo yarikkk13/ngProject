@@ -1,10 +1,22 @@
-import { Directive } from '@angular/core';
+import {Directive, Input, TemplateRef, ViewContainerRef, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[appIfAuthenticated]'
 })
-export class IfAuthenticatedDirective {
+export class IfAuthenticatedDirective implements OnInit {
 
-  constructor() { }
+  constructor(private templateRef: TemplateRef<any>,
+              private viewContainer: ViewContainerRef) {
+  }
 
+  ifAuthenticated(condition: boolean) {
+    if (condition) {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else {
+      this.viewContainer.clear();
+    }
+  }
+
+  ngOnInit() {
+  }
 }
