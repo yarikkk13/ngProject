@@ -32,5 +32,6 @@ export class CoursesService {
 
   public removeCourse(id: string): void {
     courses.splice(courses.findIndex(course => course.id === +id), 1)
+    console.log(courses)
   }
 }
