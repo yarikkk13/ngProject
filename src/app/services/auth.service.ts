@@ -3,26 +3,27 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
-  login(email: string, password: string): void {
+  public login(email: string, password: string): void {
     localStorage.setItem('email', email)
     localStorage.setItem('password', password)
   }
 
-  logOut(): void {
+  public logOut(): void {
     localStorage.clear()
   }
 
-  isAuthenticated(): boolean {
+  public isAuthenticated(): boolean {
     const email = localStorage.getItem('email');
     const password = localStorage.getItem('password');
     return !!(email && password);
   }
 
-  getUserInfo(): any {
+  public getUserInfo(): any {
     const email = localStorage.getItem('email');
     const password = localStorage.getItem('password');
-    return { email, password };
+    return {email, password};
   }
 }

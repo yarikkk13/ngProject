@@ -34,12 +34,11 @@ export class SectionComponent implements OnInit {
     console.log(text)
   };
 
-  public delete(text: string): ICourse[] {
+  public delete(id: string): void {
     let result = window.prompt('Do you really want delete this course? Yes/No');
     if (result?.toLowerCase() == 'yes') {
-      return this.courses = this.courseService.removeCourse(text)
+      this.courseService.removeCourse(id)
     }
-    else return this.courses = this.courseService.getCourses()
   }
 
   public showTheSearching(searchText: string): ICourse[] {

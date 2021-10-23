@@ -6,27 +6,31 @@ import { ICourse } from "../models/Course";
 @Injectable({
   providedIn: 'root'
 })
+
 export class CoursesService {
-  getCourses(): ICourse[] {
+
+  public getCourses(): ICourse[] {
     return courses;
   }
 
-  getCourseById(id: string): ICourse[] {
+  public getCourseById(id: string): ICourse[] {
     return courses.filter(course => course.id == +id)
   }
 
-  createCourse(id: number, title: string, creationTime: Date, duration: number, description: string, topRated: boolean): ICourse[] {
-    const newCourse: ICourse = {id, title, creationTime, duration, description, topRated}
-    let list: ICourse[] = courses;
-    list.push(newCourse)
-    return list
+  public createCourse(course: ICourse): void {
+    courses.push(course)
   }
 
-  updateCourse(course: ICourse, ...args: []): ICourse {
-    return course
+  public updateCourse(id: string, course: ICourse): ICourse[] {
+    return courses.map(function (currentCourse) {
+      if (currentCourse.id == +id) {
+        currentCourse = course
+      }
+      return currentCourse
+    })
   }
 
-  removeCourse(id: string): ICourse[] {
-    return courses.filter(course => course.id !== +id)
+  public removeCourse(id: string): void {
+    courses.splice(courses.findIndex(course => course.id === +id), 1)
   }
 }
