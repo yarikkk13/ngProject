@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
-import {ICourse} from "../../models/Course";
+import { ICourse } from "../../models/Course";
 
 @Component({
   selector: 'app-page',

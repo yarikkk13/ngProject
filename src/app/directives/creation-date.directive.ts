@@ -1,5 +1,5 @@
-import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-import {ICourse} from "../models/Course";
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { ICourse } from "../models/Course";
 
 @Directive({
   selector: '[appCreationDate]'

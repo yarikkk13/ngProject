@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {ICourse} from "../../models/Course";
-import {CoursesService} from "../../services/courses.service";
+import { ICourse } from "../../models/Course";
+import { CoursesService } from "../../services/courses.service";
+import {courses} from "../../mockArrays/mockCourses";
 
 @Component({
   selector: 'app-section',
@@ -23,6 +24,9 @@ export class SectionComponent implements OnInit {
 
   public searchText: string = '';
 
+  constructor(private courseService: CoursesService) {
+  }
+
   public trackByIndex = (index: number): number => {
     return index;
   };
@@ -31,8 +35,12 @@ export class SectionComponent implements OnInit {
     console.log(text)
   };
 
-  public delete(text: string): void {
-    console.log(text);
+  public delete(id: string): void {
+    let result = window.prompt('Do you really want delete this course? Yes/No');
+    if (result?.toLowerCase() == 'yes') {
+      this.courseService.removeCourse(id)
+    }
+    console.log(courses)
   }
 
   public showTheSearching(searchText: string): ICourse[] {
@@ -46,9 +54,6 @@ export class SectionComponent implements OnInit {
 
   public showMore(): void {
     console.log(this.load)
-  }
-
-  constructor(private courseService: CoursesService) {
   }
 
   ngOnInit(): void {
