@@ -13,13 +13,16 @@ export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
 
+  public loginWord = 'Login';
+  public forgotWord = 'Forgot password?';
+
   constructor(private authServices: AuthService) {
   }
 
   submitMethod(): void {
     this.authServices.login(this.email, this.password)
-    console.log(localStorage.getItem('email'))
-    console.log(localStorage.getItem('password'))
+    console.log(this.email)
+    console.log(localStorage.getItem(this.email))
     console.log('logged in successfully')
   }
 

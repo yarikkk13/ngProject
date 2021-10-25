@@ -7,8 +7,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   public login(email: string, password: string): void {
-    localStorage.setItem('email', email)
-    localStorage.setItem('password', password)
+    localStorage.setItem(email, password)
   }
 
   public logOut(): void {

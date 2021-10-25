@@ -2,20 +2,21 @@
   <div class="col-md-4 offset-md-4">
     <div class="login-form bg-white mt-4 p-4">
       <form action="" method="" class="row g-3">
-        <h4>Login</h4>
+        <h4>{{loginWord}}</h4>
         <div class="col-12">
-          <label>Email</label>
-          <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email"
+          <label for="email"></label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="email"
                  [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-12">
-          <label>Password</label>
-          <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password"
+          <label for="password"></label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                 [(ngModel)]="password"
                  [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-12">
-          <a href="#" class="stretched-link">Forgot password?</a>
-          <button type="submit" class="btn btn-light float-end" (click)="submitMethod()">Login</button>
+          <a href="#" class="stretched-link">{{forgotWord}}</a>
+          <button type="submit" class="btn btn-light float-end" (click)="submitMethod()">{{loginWord}}</button>
         </div>
       </form>
     </div>
