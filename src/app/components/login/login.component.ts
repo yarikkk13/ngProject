@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
 
-  public loginWord = 'Login';
-  public forgotWord = 'Forgot password?';
+  public loginWord: string = 'Login';
+  public forgotWord: string = 'Forgot password?';
 
   constructor(private authServices: AuthService) {
   }
