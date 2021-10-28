@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ICourse } from "../../models/Course";
-import { CoursesService } from "../../services/courses.service";
-import { courses } from "../../mockArrays/mockCourses";
+import {ICourse} from "../../models/Course";
+import {CoursesService} from "../../services/courses.service";
+import {courses} from "../../mockArrays/mockCourses";
 
 @Component({
   selector: 'app-section',
@@ -60,4 +60,5 @@ export class SectionComponent implements OnInit {
     this.courses = this.courseService.getCourses()
     console.log('init') //lifecycle hooks to understand the ordering
   }
+
 }
