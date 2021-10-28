@@ -1,11 +1,21 @@
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 
-import { ICourse } from "../../models/Course";
+import {ICourse} from "../../models/Course";
 
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
-  styleUrls: ['./page.component.css']
+  styleUrls: ['./page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageComponent implements OnInit, OnChanges {
 
