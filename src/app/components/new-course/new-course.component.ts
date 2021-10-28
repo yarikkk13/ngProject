@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ICourse} from "../../models/Course";
 
 @Component({
   selector: 'app-new-course',
@@ -7,13 +8,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class NewCourseComponent implements OnInit {
 
-  public title: string = 'Title'
-  public description: string = 'Description'
-  public duration: string = 'Duration'
-  public date: string = 'Date'
-  public authors: string = 'Authors'
-  public save: string = 'Save'
-  public cancel: string = 'Cancel'
+  duration:number;
+
+  public title: string = 'Title';
+  public description: string = 'Description';
+  public durationString: string = 'Duration';
+  public date: string = 'Date';
+  public authors: string = 'Authors';
+  public save: string = 'Save';
+  public cancel: string = 'Cancel';
 
   constructor() {
   }

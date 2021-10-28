@@ -17,10 +17,14 @@
   </mat-form-field>
 
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{duration}}</mat-label>
-    <input matInput placeholder="Duration">
+    <mat-label>{{durationString}}</mat-label>
+    <input matInput placeholder="Duration" [(ngModel)]="duration"
+           [ngModelOptions]="{standalone: true}">
+
     <mat-hint></mat-hint>
   </mat-form-field>
+  <p>{{duration | duration}}</p>
+
 
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>{{authors}}</mat-label>
