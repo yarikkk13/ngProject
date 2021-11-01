@@ -9,7 +9,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 
-import {ICourse} from "../../models/Course";
+import { ICourse } from "../../models/Course";
 
 @Component({
   selector: 'app-page',
@@ -17,6 +17,7 @@ import {ICourse} from "../../models/Course";
   styleUrls: ['./page.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class PageComponent implements OnInit, OnChanges {
 
   @Input()

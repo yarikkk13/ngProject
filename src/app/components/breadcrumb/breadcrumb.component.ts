@@ -5,10 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css']
 })
+
 export class BreadcrumbComponent implements OnInit {
 
   public courses: string = 'Courses';
 
   ngOnInit(): void {
   }
+
 }

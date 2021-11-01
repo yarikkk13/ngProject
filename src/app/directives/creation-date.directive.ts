@@ -4,12 +4,13 @@ import { ICourse } from "../models/Course";
 @Directive({
   selector: '[appCreationDate]'
 })
+
 export class CreationDateDirective implements OnInit {
   @Input()
   directivesCourse: ICourse;
 
   constructor(private elementRef: ElementRef) {
-  }
+  };
 
   creationDateDirectiveFunc() {
     const courseDate = this.directivesCourse?.creationTime.getTime();
@@ -20,9 +21,9 @@ export class CreationDateDirective implements OnInit {
     } else if (courseDate > currentDate) {
       this.elementRef.nativeElement.style.border = "solid 1px blue";
     }
-  }
+  };
 
   ngOnInit() {
     this.creationDateDirectiveFunc()
-  }
+  };
 }

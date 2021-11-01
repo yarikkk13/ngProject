@@ -1,4 +1,4 @@
-import {Directive, Input, TemplateRef, ViewContainerRef, OnInit} from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appIfAuthenticated]'
