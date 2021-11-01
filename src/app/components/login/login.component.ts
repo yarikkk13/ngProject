@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
-import { AuthService } from "../../services/auth.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class LoginComponent implements OnInit {
@@ -13,8 +14,8 @@ export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
 
-  public loginWord = 'Login';
-  public forgotWord = 'Forgot password?';
+  public loginWord: string = 'Login';
+  public forgotWord: string = 'Forgot password?';
 
   constructor(private authServices: AuthService) {
   }

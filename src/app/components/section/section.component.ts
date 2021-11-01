@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ICourse } from "../../models/Course";
-import { CoursesService } from "../../services/courses.service";
+import {ICourse} from "../../models/Course";
+import {CoursesService} from "../../services/courses.service";
 import {courses} from "../../mockArrays/mockCourses";
 
 @Component({
@@ -52,6 +52,7 @@ export class SectionComponent implements OnInit {
     return this.courses = this.courses?.filter(course => course.title.includes(searchText))
   }
 
+
   public showMore(): void {
     console.log(this.load)
   }
@@ -60,4 +61,5 @@ export class SectionComponent implements OnInit {
     this.courses = this.courseService.getCourses()
     console.log('init') //lifecycle hooks to understand the ordering
   }
+
 }

@@ -15,6 +15,12 @@ import { OrderByPipe } from './pipes/order-by.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { IfAuthenticatedDirective } from './directives/if-authenticated.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewCourseComponent } from './components/new-course/new-course.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -29,12 +35,18 @@ import { IfAuthenticatedDirective } from './directives/if-authenticated.directiv
     OrderByPipe,
     FilterPipe,
     LoginComponent,
-    IfAuthenticatedDirective
+    IfAuthenticatedDirective,
+    NewCourseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
