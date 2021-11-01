@@ -15,7 +15,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageComponent } from './components/page/page.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { SectionComponent } from './components/section/section.component';
-import { LoginComponent } from './components/login/login.component';
 import { NewCourseComponent } from './components/new-course/new-course.component';
 
 import { DurationPipe } from './pipes/duration.pipe';
@@ -39,7 +38,6 @@ import { IfAuthenticatedDirective } from './directives/if-authenticated.directiv
     CreationDateDirective,
     OrderByPipe,
     FilterPipe,
-    LoginComponent,
     IfAuthenticatedDirective,
     NewCourseComponent
   ],
