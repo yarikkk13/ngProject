@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark customNavHeader">
   <div class=" navbar-collapse">
-    <a class="navbar-brand me-auto " href="#"><i class="bi bi-play-circle-fill colorSign"></i> {{ videoCurse }}</a>
+    <a class="navbar-brand me-auto " [routerLink]="['courses']"><i class="bi bi-play-circle-fill colorSign"></i> {{ videoCurse }}</a>
     <form>
       <button class="btn btn-dark" type="submit" [routerLink]="['login']" ><i
         class="bi bi-person"></i> {{ userLogin }}</button>
