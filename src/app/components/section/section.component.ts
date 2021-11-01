@@ -52,6 +52,7 @@ export class SectionComponent implements OnInit {
     return this.courses = this.courses?.filter(course => course.title.includes(searchText))
   }
 
+
   public showMore(): void {
     console.log(this.load)
   }
