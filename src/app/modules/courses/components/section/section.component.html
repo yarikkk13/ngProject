@@ -11,7 +11,7 @@
     </div>
   </nav>
   <div class="d-flex justify-content-end" style="padding-bottom: 15px">
-    <button type="button" class="btn btn-primary" [routerLink]="['add_course']"><i class="bi bi-plus-lg"></i> {{ add }}</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['new']"><i class="bi bi-plus-lg"></i> {{ add }}</button>
   </div>
   <div *ngIf="!courses?.length;else other"><p class="bg-white d-flex justify-content-around">{{ noData }}</p></div>
   <ng-template #other>

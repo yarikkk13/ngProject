@@ -6,7 +6,7 @@ import { NewCourseComponent } from "./components/new-course/new-course.component
 
 const routes: Routes = [
   {path: '', component: SectionComponent},
-  {path: 'add_course', component: NewCourseComponent},
+  {path: 'new', component: NewCourseComponent},
 ];
 
 @NgModule({
