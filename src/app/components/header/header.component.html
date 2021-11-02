@@ -1,10 +1,12 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark customNavHeader">
   <div class=" navbar-collapse">
-    <a class="navbar-brand me-auto " [routerLink]="['courses']"><i class="bi bi-play-circle-fill colorSign"></i> {{ videoCurse }}</a>
+    <a class="navbar-brand me-auto " [routerLink]="['courses']"><i
+      class="bi bi-play-circle-fill colorSign"></i> {{ videoCurse }}</a>
     <form>
-      <button class="btn btn-dark" type="submit" [routerLink]="['login']" ><i
+      <button class="btn btn-dark" type="submit" [routerLink]="['login']"><i
         class="bi bi-person"></i> {{ userLogin }}</button>
-      <button class="btn btn-dark" type="submit" (click)="logOut()"><i class="bi bi-box-arrow-right"></i> {{ logOff }}
+      <button class="btn btn-dark" type="submit" [routerLink]="['login']" (click)="logOut()"><i
+        class="bi bi-box-arrow-right"></i> {{ logOff }}
       </button>
     </form>
   </div>
