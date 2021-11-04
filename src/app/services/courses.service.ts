@@ -21,7 +21,7 @@ export class CoursesService {
     courses.push(course)
   }
 
-  public updateCourse(id: string, course: ICourse): ICourse[] {
+  public updateCourse(id: number, course: ICourse): ICourse[] {
     return courses.map(function (currentCourse) {
       if (currentCourse.id == +id) {
         currentCourse = course

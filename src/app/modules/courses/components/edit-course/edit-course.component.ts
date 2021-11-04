@@ -24,15 +24,17 @@ export class EditCourseComponent implements OnInit {
   public cancel: string = 'Cancel';
 
 
-
-
   constructor(private activatedRoute: ActivatedRoute,
-              private moviesListService: CoursesService) {
+              private coursesService: CoursesService) {
 
     this.activatedRoute.params
       .subscribe(params => {
-        this.course = this.moviesListService.getCourseById(params.id)
+        this.course = this.coursesService.getCourseById(params.id)
       })
+  }
+
+  editCurrentCourse(id:number, course:ICourse) {
+    this.coursesService.updateCourse( id, course)
   }
 
   ngOnInit(): void {

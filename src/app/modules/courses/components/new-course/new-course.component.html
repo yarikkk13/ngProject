@@ -35,7 +35,7 @@
     </mat-form-field>
 
     <div class="example-button-row">
-      <button mat-stroked-button routerLink="/courses">{{save}}</button>
+      <button mat-stroked-button routerLink="/courses" (click)="addCourse(course)">{{save}}</button>
       <button mat-stroked-button routerLink="/courses">{{cancel}}</button>
     </div>
   </form>

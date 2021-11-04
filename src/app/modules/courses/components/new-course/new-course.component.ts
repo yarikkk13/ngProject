@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CoursesService} from "../../../../services/courses.service";
+import {ICourse} from "../../../../models/Course";
 
 @Component({
   selector: 'app-new-course',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NewCourseComponent implements OnInit {
+
+  @Input()
+  course: ICourse;
 
   public duration: number;
 
@@ -18,7 +23,12 @@ export class NewCourseComponent implements OnInit {
   public save: string = 'Save';
   public cancel: string = 'Cancel';
 
-  constructor() {
+  constructor(private coursesService: CoursesService) {
+  }
+
+  addCourse(course:ICourse):void{
+    this.coursesService.createCourse(course)
+
   }
 
   ngOnInit(): void {
