@@ -14,6 +14,7 @@ import { CreationDateDirective } from "../../directives/creation-date.directive"
 import { FilterPipe } from "../../pipes/filter.pipe";
 import { OrderByPipe } from "../../pipes/order-by.pipe";
 import { DurationPipe } from "../../pipes/duration.pipe";
+import { EditCourseComponent } from './components/edit-course/edit-course.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { DurationPipe } from "../../pipes/duration.pipe";
     OrderByPipe,
     FilterPipe,
     DurationPipe,
+    EditCourseComponent,
   ],
   imports: [
     CommonModule,

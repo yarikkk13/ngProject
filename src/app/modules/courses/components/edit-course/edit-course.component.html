@@ -1,0 +1,39 @@
+<form class="form">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{ title }}</mat-label>
+    <input matInput placeholder="Title">
+    <mat-hint></mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{ description }}</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{date}}</mat-label>
+    <input matInput placeholder="Date">
+    <mat-hint></mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{durationString}}</mat-label>
+    <input matInput placeholder="Duration" [(ngModel)]="duration"
+           [ngModelOptions]="{standalone: true}">
+
+    <mat-hint></mat-hint>
+  </mat-form-field>
+  <p>{{duration | duration}}</p>
+
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{authors}}</mat-label>
+    <input matInput placeholder="Authors">
+    <mat-hint></mat-hint>
+  </mat-form-field>
+
+  <div class="example-button-row">
+    <button mat-stroked-button>{{save}}</button>
+    <button mat-stroked-button>{{cancel}}</button>
+  </div>
+</form>

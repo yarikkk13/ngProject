@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { courses } from "../mockArrays/mockCourses";
-import { ICourse } from "../models/Course";
+import {courses} from "../mockArrays/mockCourses";
+import {ICourse} from "../models/Course";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class CoursesService {
     return courses;
   }
 
-  public getCourseById(id: string): ICourse[] {
-    return courses.filter(course => course.id == +id)
+  public getCourseById(id: string): ICourse | undefined {
+    return courses.find(course => course.id == +id)
   }
 
   public createCourse(course: ICourse): void {
