@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CoursesService} from "../../../../services/courses.service";
+import {ICourse} from "../../../../models/Course";
 
 @Component({
   selector: 'app-edit-course',
@@ -8,6 +9,9 @@ import {CoursesService} from "../../../../services/courses.service";
   styleUrls: ['./edit-course.component.css']
 })
 export class EditCourseComponent implements OnInit {
+
+  @Input()
+  course: ICourse | undefined;
 
   public duration: number;
 
@@ -19,7 +23,7 @@ export class EditCourseComponent implements OnInit {
   public save: string = 'Save';
   public cancel: string = 'Cancel';
 
-  public course: any;
+
 
 
   constructor(private activatedRoute: ActivatedRoute,
