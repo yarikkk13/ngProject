@@ -8,6 +8,8 @@ import { AppComponent } from './components/app/app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { IfAuthenticatedDirective } from './directives/if-authenticated.directive';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { IfAuthenticatedDirective } from './directives/if-authenticated.directiv
     HeaderComponent,
     FooterComponent,
     IfAuthenticatedDirective,
+    NotFoundComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
