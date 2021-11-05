@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CoursesService} from "../../../../services/courses.service";
 import {ICourse} from "../../../../models/Course";
@@ -8,7 +8,7 @@ import {ICourse} from "../../../../models/Course";
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.css']
 })
-export class EditCourseComponent implements OnInit {
+export class EditCourseComponent implements OnInit, OnDestroy {
 
 
   course: ICourse;
@@ -30,6 +30,9 @@ export class EditCourseComponent implements OnInit {
     this.coursesService.updateCourse(this.course.id, this.course)
   }
 
+  ngOnDestroy() {
+    this.activatedRoute.params.subscribe().unsubscribe()
+  }
 
   ngOnInit(): void {
   }
