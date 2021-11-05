@@ -1,25 +1,26 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {CoursesService} from "../../../../services/courses.service";
-import {ICourse} from "../../../../models/Course";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+
+import { CoursesService } from "../../../../services/courses.service";
+import { ICourse } from "../../../../models/Course";
 
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.css']
 })
+
 export class EditCourseComponent implements OnInit, OnDestroy {
-
-
-  course: ICourse;
+  public course: ICourse;
 
   public save: string = 'Save';
   public cancel: string = 'Cancel';
 
+  public notFoundText = '404 error';
+  public text = "sorry, your page doesn't exists";
 
   constructor(private activatedRoute: ActivatedRoute,
               private coursesService: CoursesService) {
-
     this.activatedRoute.params
       .subscribe(params => {
         this.course = this.coursesService.getCourseById(params.id) as any
@@ -30,11 +31,11 @@ export class EditCourseComponent implements OnInit, OnDestroy {
     this.coursesService.updateCourse(this.course.id, this.course)
   }
 
-  ngOnDestroy() {
-    this.activatedRoute.params.subscribe().unsubscribe()
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
+  ngOnDestroy() {
+    this.activatedRoute.params.subscribe().unsubscribe()
   }
 
 }

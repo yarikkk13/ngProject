@@ -1,21 +1,25 @@
 <div *ngIf="course">
-<app-breadcrumb [course]="course" ></app-breadcrumb>
-<div>
-  <input placeholder="Title" [(ngModel)]="course.title">
+  <app-breadcrumb [course]="course"></app-breadcrumb>
+  <div>
+    <input placeholder="Title" [(ngModel)]="course.title">
+  </div>
+  <div>
+    <textarea [(ngModel)]="course.description"></textarea>
+  </div>
+  <input placeholder="Date" [(ngModel)]="course.creationTime">
+  <div>
+    <input placeholder="Duration" [(ngModel)]="course.duration" [ngModelOptions]="{standalone: true}">
+    <p>{{course.duration | duration}}</p>
+  </div>
+  <div>
+    <input placeholder="Authors">
+  </div>
+  <div class="example-button-row">
+    <button mat-stroked-button routerLink="/courses" (click)="editCurrentCourse()">{{save}}</button>
+    <button mat-stroked-button routerLink="/courses">{{cancel}}</button>
+  </div>
 </div>
-<div>
-  <textarea [(ngModel)]="course.description"></textarea>
-</div>
-<input placeholder="Date" [(ngModel)]="course.creationTime">
-<div>
-  <input placeholder="Duration" [(ngModel)]="course.duration" [ngModelOptions]="{standalone: true}">
-  <p>{{course.duration | duration}}</p>
-</div>
-<div>
-  <input placeholder="Authors">
-</div>
-<div class="example-button-row">
-  <button mat-stroked-button routerLink="/courses" (click)="editCurrentCourse()">{{save}}</button>
-  <button mat-stroked-button routerLink="/courses">{{cancel}}</button>
-</div>
+<div *ngIf="!course">
+  <h1 class="not_found">{{notFoundText}}</h1>
+  <p class="not_found">{{text}}</p>
 </div>
