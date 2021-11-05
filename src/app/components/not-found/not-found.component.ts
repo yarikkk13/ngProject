@@ -11,8 +11,6 @@ export class NotFoundComponent implements OnInit {
 
   public text = "sorry, your page doesn't exists";
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 

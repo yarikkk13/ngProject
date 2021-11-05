@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CoursesService} from "../../../../services/courses.service";
 import {ICourse} from "../../../../models/Course";
@@ -10,16 +10,9 @@ import {ICourse} from "../../../../models/Course";
 })
 export class EditCourseComponent implements OnInit {
 
-  @Input()
-  course: ICourse | undefined;
 
-  public duration: number;
+  course: ICourse;
 
-  public title: string = 'Title';
-  public description: string = 'Description';
-  public durationString: string = 'Duration';
-  public date: string = 'Date';
-  public authors: string = 'Authors';
   public save: string = 'Save';
   public cancel: string = 'Cancel';
 
@@ -29,13 +22,14 @@ export class EditCourseComponent implements OnInit {
 
     this.activatedRoute.params
       .subscribe(params => {
-        this.course = this.coursesService.getCourseById(params.id)
+        this.course = this.coursesService.getCourseById(params.id) as any
       })
   }
 
-  editCurrentCourse(id:number, course:ICourse) {
-    this.coursesService.updateCourse( id, course)
+  public editCurrentCourse(): void {
+    this.coursesService.updateCourse(this.course.id, this.course)
   }
+
 
   ngOnInit(): void {
   }

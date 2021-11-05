@@ -1,40 +1,21 @@
-<app-breadcrumb></app-breadcrumb>
-<form class="form">
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{ title }}</mat-label>
-    <input matInput placeholder="Title" [value]="course?.title">
-    <mat-hint></mat-hint>
-  </mat-form-field>
-
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{ description }}</mat-label>
-    <textarea matInput [value]="course?.description"></textarea>
-  </mat-form-field>
-
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{date}}</mat-label>
-    <input matInput placeholder="Date" [value]="course?.creationTime">
-    <mat-hint></mat-hint>
-  </mat-form-field>
-
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{durationString}}</mat-label>
-    <input matInput placeholder="Duration" [(ngModel)]="duration" [value]="course?.duration"
-           [ngModelOptions]="{standalone: true}">
-
-    <mat-hint></mat-hint>
-  </mat-form-field>
-  <p>{{duration | duration}}</p>
-
-
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{authors}}</mat-label>
-    <input matInput placeholder="Authors">
-    <mat-hint></mat-hint>
-  </mat-form-field>
-
-  <div class="example-button-row">
-    <button mat-stroked-button routerLink="/courses">{{save}}</button>
-    <button mat-stroked-button routerLink="/courses">{{cancel}}</button>
-  </div>
-</form>
+<div *ngIf="course">
+<app-breadcrumb [course]="course" ></app-breadcrumb>
+<div>
+  <input placeholder="Title" [(ngModel)]="course.title">
+</div>
+<div>
+  <textarea [(ngModel)]="course.description"></textarea>
+</div>
+<input placeholder="Date" [(ngModel)]="course.creationTime">
+<div>
+  <input placeholder="Duration" [(ngModel)]="course.duration" [ngModelOptions]="{standalone: true}">
+  <p>{{course.duration | duration}}</p>
+</div>
+<div>
+  <input placeholder="Authors">
+</div>
+<div class="example-button-row">
+  <button mat-stroked-button routerLink="/courses" (click)="editCurrentCourse()">{{save}}</button>
+  <button mat-stroked-button routerLink="/courses">{{cancel}}</button>
+</div>
+</div>

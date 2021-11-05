@@ -9,29 +9,36 @@ import {ICourse} from "../models/Course";
 
 export class CoursesService {
 
+  public coursesMock: ICourse[];
+
+  constructor() {
+    this.coursesMock = courses;
+  }
+
+
   public getCourses(): ICourse[] {
-    return courses;
+    return this.coursesMock;
   }
 
   public getCourseById(id: string): ICourse | undefined {
-    return courses.find(course => course.id == +id)
+    return this.coursesMock.find(course => course.id == +id)
   }
 
   public createCourse(course: ICourse): void {
     courses.push(course)
   }
 
-  public updateCourse(id: number, course: ICourse): ICourse[] {
-    return courses.map(function (currentCourse) {
+  public updateCourse(id: number, course: ICourse): void {
+    this.coursesMock.forEach(function (currentCourse) {
       if (currentCourse.id == +id) {
         currentCourse = course
       }
-      return currentCourse
     })
   }
 
   public removeCourse(id: string): void {
-    courses.splice(courses.findIndex(course => course.id === +id), 1)
-    console.log(courses)
+    console.log(this.coursesMock)
+    this.coursesMock.splice(this.coursesMock.findIndex(course => course.id == +id), 1)
+    console.log(this.coursesMock)
   }
 }

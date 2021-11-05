@@ -36,7 +36,7 @@ export class SectionComponent implements OnInit {
     if (result?.toLowerCase() == 'yes') {
       this.courseService.removeCourse(id)
     }
-    console.log(courses)
+    console.log(id)
   };
 
   public showTheSearching(searchText: string): ICourse[] {

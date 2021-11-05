@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CoursesService} from "../../../../services/courses.service";
 import {ICourse} from "../../../../models/Course";
 
@@ -10,28 +10,33 @@ import {ICourse} from "../../../../models/Course";
 
 export class NewCourseComponent implements OnInit {
 
-  @Input()
-  course: ICourse;
+  public course: ICourse = {
+    id: 0,
+    title: 'some text',
+    creationTime: new Date(2021, 10, 6),
+    duration: 0,
+    description: 'someDescription',
+    topRated: false
+  };
 
-  public duration: number;
 
-  public title: string = 'Title';
-  public description: string = 'Description';
-  public durationString: string = 'Duration';
-  public date: string = 'Date';
-  public authors: string = 'Authors';
   public save: string = 'Save';
   public cancel: string = 'Cancel';
 
   constructor(private coursesService: CoursesService) {
   }
 
-  addCourse(course:ICourse):void{
-    this.coursesService.createCourse(course)
-
+  public addCourse(): void {
+    const min = Math.ceil(1);
+    const max = Math.floor(10000000);
+    this.course.id = Math.floor(Math.random() * (max - min)) + min;
+    if (!this.coursesService.getCourseById(String(this.course.id))) {
+      this.coursesService.createCourse(this.course)
+    }
   }
 
   ngOnInit(): void {
+    console.log('hello')
   }
 
 }

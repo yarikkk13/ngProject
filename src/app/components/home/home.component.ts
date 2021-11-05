@@ -9,8 +9,6 @@ export class HomeComponent implements OnInit {
 
   public welcome = 'Welcome to the WebCourses App !';
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 
