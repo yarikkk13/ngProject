@@ -16,7 +16,6 @@ import { OrderByPipe } from "../../pipes/order-by.pipe";
 import { DurationPipe } from "../../pipes/duration.pipe";
 import { EditCourseComponent } from './components/edit-course/edit-course.component';
 
-
 @NgModule({
   declarations: [
     SectionComponent,
