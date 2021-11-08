@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
-import { MatInputModule } from "@angular/material/input";
-import { MatButtonModule } from "@angular/material/button";
-import { MatFormFieldModule } from "@angular/material/form-field";
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { SectionComponent } from "./components/section/section.component";
@@ -32,9 +29,6 @@ import { EditCourseComponent } from './components/edit-course/edit-course.compon
     CommonModule,
     FormsModule,
     CoursesRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
   ],
   exports: [
     CreationDateDirective,
