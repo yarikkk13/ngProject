@@ -34,8 +34,8 @@ export class SectionComponent implements OnInit {
     let result = window.prompt('Do you really want delete this course? Yes/No');
     if (result?.toLowerCase() == 'yes') {
       this.courseService.removeCourse(id)
+      this.courses = this.courseService.getCourses()
     }
-    console.log(id)
   };
 
   public showTheSearching(searchText: string): ICourse[] {

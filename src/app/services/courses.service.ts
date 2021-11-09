@@ -25,7 +25,7 @@ export class CoursesService {
   }
 
   public createCourse(course: ICourse): void {
-    courses.push(course)
+    this.coursesMock.push(course)
   }
 
   public updateCourse(id: number, course: ICourse): void {
@@ -37,11 +37,8 @@ export class CoursesService {
   }
 
   public removeCourse(id: string): void {
-    console.log(this.coursesMock)
-    this.coursesMock.splice(this.coursesMock.findIndex(course => course.id == +id), 1)
-    console.log(this.coursesMock)
-  //   this.coursesMock = this.coursesMock.filter((course) => {
-  //     return course.id !== +id;
-  //   })
+    this.coursesMock = this.coursesMock.filter((course) => {
+      return course.id !== +id;
+    })
   }
 }
