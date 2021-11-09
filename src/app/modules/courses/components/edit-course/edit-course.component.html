@@ -1,0 +1,21 @@
+<div>
+  <app-breadcrumb [course]="course"></app-breadcrumb>
+  <div>
+    <input placeholder="Title" [(ngModel)]="course.title">
+  </div>
+  <div>
+    <textarea [(ngModel)]="course.description"></textarea>
+  </div>
+  <input placeholder="Date" [(ngModel)]="course.creationTime">
+  <div>
+    <input placeholder="Duration" [(ngModel)]="course.duration" [ngModelOptions]="{standalone: true}">
+    <p>{{course.duration | duration}}</p>
+  </div>
+  <div>
+    <input placeholder="Authors">
+  </div>
+  <div class="example-button-row">
+    <button routerLink="/courses" (click)="editCurrentCourse()">{{save}}</button>
+    <button routerLink="/courses">{{cancel}}</button>
+  </div>
+</div>

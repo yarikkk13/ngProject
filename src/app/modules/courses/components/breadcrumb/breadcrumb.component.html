@@ -1,0 +1,6 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-white" style="padding-left: 4.5%">
+    <li *ngIf="course" class="breadcrumb-item active" aria-current="page">{{ course.title }}/ {{ course.id }}</li>
+    <li *ngIf="!course" class="breadcrumb-item active" aria-current="page">{{ courses }}</li>
+  </ol>
+</nav>

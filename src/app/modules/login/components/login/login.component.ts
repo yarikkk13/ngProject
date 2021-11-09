@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import {AuthService} from "../../services/auth.service";
+import { AuthService } from "../../../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   submitMethod(): void {
     this.authServices.login(this.email, this.password)
     console.log(this.email)
-    console.log(localStorage.getItem(this.email))
+    console.log(localStorage.getItem('email'))
     console.log('logged in successfully')
   }
 

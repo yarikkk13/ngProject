@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import {ICourse} from "../../models/Course";
-import {CoursesService} from "../../services/courses.service";
-import {courses} from "../../mockArrays/mockCourses";
+import { ICourse } from "../../../../models/Course";
+import { CoursesService } from "../../../../services/courses.service";
 
 @Component({
   selector: 'app-section',
@@ -15,13 +14,9 @@ export class SectionComponent implements OnInit {
   public courses: ICourse[];
 
   public search: string = 'Search';
-
   public add: string = 'Add course';
-
   public load: string = 'LOAD MORE';
-
   public noData: string = 'No data.Feel free to add new course';
-
   public searchText: string = '';
 
   constructor(private courseService: CoursesService) {
@@ -39,9 +34,9 @@ export class SectionComponent implements OnInit {
     let result = window.prompt('Do you really want delete this course? Yes/No');
     if (result?.toLowerCase() == 'yes') {
       this.courseService.removeCourse(id)
+      this.courses = this.courseService.getCourses()
     }
-    console.log(courses)
-  }
+  };
 
   public showTheSearching(searchText: string): ICourse[] {
     console.log(searchText)
@@ -50,16 +45,16 @@ export class SectionComponent implements OnInit {
       return this.courses = this.courseService.getCourses()
     }
     return this.courses = this.courses?.filter(course => course.title.includes(searchText))
-  }
+  };
 
 
   public showMore(): void {
     console.log(this.load)
-  }
+  };
 
   ngOnInit(): void {
     this.courses = this.courseService.getCourses()
     console.log('init') //lifecycle hooks to understand the ordering
-  }
+  };
 
 }

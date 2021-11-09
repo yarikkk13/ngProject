@@ -4,6 +4,7 @@ import { ICourse } from "../models/Course";
 @Pipe({
   name: 'orderBy'
 })
+
 export class OrderByPipe implements PipeTransform {
 
   transform(array: ICourse[], ...args: unknown[]): ICourse[] {

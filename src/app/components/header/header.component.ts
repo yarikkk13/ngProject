@@ -6,6 +6,7 @@ import { AuthService } from "../../services/auth.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
 
   public videoCurse: string = 'VIDEO COURSE';
@@ -14,10 +15,10 @@ export class HeaderComponent implements OnInit {
 
   public logOff: string = 'Log off';
 
-  constructor(private authService:AuthService) {
+  constructor(private authService: AuthService) {
   }
 
-  logOut(){
+  logOut(): void {
     this.authService.logOut();
   }
 
