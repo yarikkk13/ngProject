@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   submitMethod(): void {
     this.authServices.login(this.email, this.password)
     console.log(this.email)
-    console.log(localStorage.getItem(this.email))
+    console.log(localStorage.getItem('email'))
     console.log('logged in successfully')
   }
 

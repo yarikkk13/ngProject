@@ -40,5 +40,8 @@ export class CoursesService {
     console.log(this.coursesMock)
     this.coursesMock.splice(this.coursesMock.findIndex(course => course.id == +id), 1)
     console.log(this.coursesMock)
+  //   this.coursesMock = this.coursesMock.filter((course) => {
+  //     return course.id !== +id;
+  //   })
   }
 }

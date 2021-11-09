@@ -1,22 +1,18 @@
-import { Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { CanActivate } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from "../../services/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class NotAuthGuard implements CanActivate {
 
-  public isAuthenticated(): boolean {
-    const email = localStorage.getItem('email');
-    const password = localStorage.getItem('password');
-    return !!(email && password);
+  constructor(private authService: AuthService) {
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.isAuthenticated();
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean  {
+    return this.authService.isAuthenticated()
   }
-
 }
