@@ -1,4 +1,4 @@
-<div *ngIf="course">
+<div>
   <app-breadcrumb [course]="course"></app-breadcrumb>
   <div>
     <input placeholder="Title" [(ngModel)]="course.title">
@@ -18,8 +18,4 @@
     <button routerLink="/courses" (click)="editCurrentCourse()">{{save}}</button>
     <button routerLink="/courses">{{cancel}}</button>
   </div>
-</div>
-<div *ngIf="!course">
-  <h1 class="not_found">{{notFoundText}}</h1>
-  <p class="not_found">{{text}}</p>
 </div>

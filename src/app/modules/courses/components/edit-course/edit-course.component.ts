@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
 import { CoursesService } from "../../../../services/courses.service";
@@ -17,13 +17,11 @@ export class EditCourseComponent implements OnInit, OnDestroy {
   public save: string = 'Save';
   public cancel: string = 'Cancel';
 
-  public notFoundText = '404 error';
-  public text = "sorry, your page doesn't exists";
-
   public subscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private coursesService: CoursesService) {
+              private coursesService: CoursesService,
+              private router: Router) {
   }
 
   public editCurrentCourse(): void {
@@ -34,6 +32,7 @@ export class EditCourseComponent implements OnInit, OnDestroy {
     this.subscription = this.activatedRoute.params
       .subscribe(params => {
         this.course = this.coursesService.getCourseById(params.id) as any
+        if (!this.course) this.router.navigate(['not-found']).finally()
       })
   }
 
