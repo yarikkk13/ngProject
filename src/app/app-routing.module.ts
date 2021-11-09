@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from "./components/home/home.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
-import {NotAuthGuard} from "./guards/not-auth/not-auth.guard";
+import { NotAuthGuard } from "./guards/not-auth/not-auth.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},

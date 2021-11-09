@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {courses} from "../mockArrays/mockCourses";
-import {ICourse} from "../models/Course";
+import { courses } from "../mockArrays/mockCourses";
+import { ICourse } from "../models/Course";
 
 @Injectable({
   providedIn: 'root'

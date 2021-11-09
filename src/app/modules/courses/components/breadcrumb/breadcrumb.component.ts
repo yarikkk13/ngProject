@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ICourse} from "../../../../models/Course";
+import { Component, Input, OnInit } from '@angular/core';
+import { ICourse } from "../../../../models/Course";
 
 @Component({
   selector: 'app-breadcrumb',

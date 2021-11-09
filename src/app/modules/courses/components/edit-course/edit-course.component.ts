@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
 
-import {CoursesService} from "../../../../services/courses.service";
-import {ICourse} from "../../../../models/Course";
-import {Subscription} from "rxjs";
+import { CoursesService } from "../../../../services/courses.service";
+import { ICourse } from "../../../../models/Course";
 
 @Component({
   selector: 'app-edit-course',

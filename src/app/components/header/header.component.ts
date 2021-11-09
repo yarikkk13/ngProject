@@ -15,10 +15,10 @@ export class HeaderComponent implements OnInit {
 
   public logOff: string = 'Log off';
 
-  constructor(private authService:AuthService) {
+  constructor(private authService: AuthService) {
   }
 
-  logOut():void {
+  logOut(): void {
     this.authService.logOut();
   }
 

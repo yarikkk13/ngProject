@@ -3,6 +3,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef, OnInit } from '@angula
 @Directive({
   selector: '[appIfAuthenticated]'
 })
+
 export class IfAuthenticatedDirective implements OnInit {
 
   constructor(private templateRef: TemplateRef<any>,
