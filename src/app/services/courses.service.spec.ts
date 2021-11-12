@@ -2,11 +2,12 @@ import { TestBed } from '@angular/core/testing';
 
 import { CoursesService } from './courses.service';
 import { courses } from "../mockArrays/mockCourses";
+import { ICourse } from "../models/Course";
 
 describe('CoursesService', () => {
 
   let service: CoursesService;
-  let mockedCourses = courses;
+  let mockedCourses: ICourse[] = courses;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
@@ -18,18 +19,18 @@ describe('CoursesService', () => {
   });
 
   it('getCourses', () => {
-    const testedCourses = service.getCourses()
+    const testedCourses:ICourse[] = service.getCourses();
     expect(testedCourses).toEqual(mockedCourses);
   });
 
   it('courseById1', () => {
     const testedCourse = service.getCourseById('1');
-    expect(testedCourse).toBe(mockedCourses[0])
+    expect(testedCourse).toBe(mockedCourses[0]);
   });
 
   it('courseById2', () => {
     const testedCourse = service.getCourseById('2');
-    expect(testedCourse).toBe(mockedCourses[1])
+    expect(testedCourse).toBe(mockedCourses[1]);
   });
 
   it('added', () => {
@@ -44,13 +45,13 @@ describe('CoursesService', () => {
         '        new course.',
       topRated: false
     });
-    expect(mockedCourses.length).toBe(3)
+    expect(mockedCourses.length).toBe(3);
   });
 
   it('remove', () => {
     service.removeCourse('2');
-    const notFoundCourse = service.getCourseById('2')
-    expect(notFoundCourse).toBe(undefined)
+    const notFoundCourse = service.getCourseById('2');
+    expect(notFoundCourse).toBe(undefined);
   });
 
 });
