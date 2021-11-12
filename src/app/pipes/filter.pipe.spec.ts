@@ -28,7 +28,7 @@ describe('FilterPipe', () => {
     }
   ];
 
-  it('transforms by duration', () => {
+  it('transforms for searching', () => {
     expect(pipe.transform(courses, 'FirSt TiTlE')).toEqual([{
       id: 1,
       title: 'first title course',
