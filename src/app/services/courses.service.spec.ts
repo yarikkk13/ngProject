@@ -4,6 +4,7 @@ import { CoursesService } from './courses.service';
 import { courses } from "../mockArrays/mockCourses";
 
 describe('CoursesService', () => {
+
   let service: CoursesService;
   let mockedCourses = courses;
 
