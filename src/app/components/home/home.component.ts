@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public welcome = 'Welcome to the WebCourses App !';
+  public welcome: string = 'Welcome to the WebCourses App !';
 
   ngOnInit(): void {
   }
