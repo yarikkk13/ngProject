@@ -19,4 +19,23 @@ describe('PageComponent', () => {
     fixture.detectChanges();
   });
 
+
+  it('check delete', () => {
+    component.course = {
+      id: 1,
+    } as any;
+    spyOn(component.eventOfDeleting, "emit")
+    component.deleteEvent()
+    expect(component.eventOfDeleting.emit).toHaveBeenCalledWith(1)
+  })
+
+    it('check edit', () => {
+    component.course = {
+      id: 1,
+    } as any;
+    spyOn(component.eventOfEditing, "emit")
+    component.editEvent()
+    expect(component.eventOfEditing.emit).toHaveBeenCalledWith(1)
+  })
+
 });

@@ -27,14 +27,15 @@ describe('CoursesService', () => {
     const testedCourse = service.getCourseById('2');
     expect(testedCourse).toEqual({
       id: 2,
-      title: 'second title course',
-      creationTime: new Date(2021, 2, 6),
-      duration: 72,
+      name: 'second title course',
+      date: "2017-09-28T04:39:24+00:00",
+      length: 72,
       description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
         '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
         '        society.Initially, course descriptions are written when a new program is being developed or when developing a\n' +
         '        new course.',
-      topRated: true
+      isTopRated: true,
+      authors: []
     });
   });
 
@@ -42,28 +43,30 @@ describe('CoursesService', () => {
     const testedCourse = service.getCourseById('1');
     expect(testedCourse).toEqual({
       id: 1,
-      title: 'first title course',
-      creationTime: new Date(2021, 10, 6),
-      duration: 32,
+      name: 'first title course',
+      date: "2017-09-28T04:39:24+00:00",
+      length: 32,
       description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
         '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
         '        society.Initially, course descriptions are written when a new program is being developed or when developing a\n' +
         '        new course.',
-      topRated: false
+      isTopRated: false,
+      authors: []
     });
   });
 
   it('added', () => {
     service.createCourse({
       id: 3,
-      title: 'third title course',
-      creationTime: new Date(2020, 10, 6),
-      duration: 99,
+      name: 'third title course',
+      date: "2017-09-28T04:39:24+00:00",
+      length: 99,
       description: 'Examine a wide variety of technologies that have influenced our society significantly. Analyze the contribution\n' +
         '        these technologies make to society, associated ethical dilemmas, and critique their value to the individual and\n' +
         '        society.Initially, course descriptions are written when a new program is being developed or when developing a\n' +
         '        new course.',
-      topRated: false
+      isTopRated: false,
+      authors: []
     });
     expect(mockedCourses.length).toBe(3);
   });

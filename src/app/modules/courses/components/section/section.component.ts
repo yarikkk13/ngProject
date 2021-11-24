@@ -44,7 +44,7 @@ export class SectionComponent implements OnInit {
     if (!searchText) {
       return this.courses = this.courseService.getCourses()
     }
-    return this.courses = this.courses?.filter(course => course.title.includes(searchText))
+    return this.courses = this.courses?.filter(course => course.name.includes(searchText))
   };
 
 

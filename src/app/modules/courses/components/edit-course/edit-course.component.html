@@ -1,15 +1,15 @@
 <div>
   <app-breadcrumb [course]="course"></app-breadcrumb>
   <div>
-    <input placeholder="Title" [(ngModel)]="course.title">
+    <input placeholder="Title" [(ngModel)]="course.name">
   </div>
   <div>
     <textarea [(ngModel)]="course.description"></textarea>
   </div>
-  <input placeholder="Date" [(ngModel)]="course.creationTime">
+  <input placeholder="Date" [(ngModel)]="course.date">
   <div>
-    <input placeholder="Duration" [(ngModel)]="course.duration" [ngModelOptions]="{standalone: true}">
-    <p>{{course.duration | duration}}</p>
+    <input placeholder="Duration" [(ngModel)]="course.length" [ngModelOptions]="{standalone: true}">
+    <p>{{course.length | duration}}</p>
   </div>
   <div>
     <input placeholder="Authors">
