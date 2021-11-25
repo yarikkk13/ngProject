@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { ICourse } from "../../../../models/Course";
-import { CoursesService } from "../../../../services/courses.service";
+import {ICourse} from "../../../../models/Course";
+import {CoursesService} from "../../../../services/courses.service";
 
 @Component({
   selector: 'app-section',
@@ -34,18 +34,18 @@ export class SectionComponent implements OnInit {
     let result = window.prompt('Do you really want delete this course? Yes/No');
     if (result?.toLowerCase() == 'yes') {
       this.courseService.removeCourse(id)
-      this.courses = this.courseService.getCourses()
+       this.courseService.getCourses().subscribe(value => this.courses = value)
     }
   };
 
-  public showTheSearching(searchText: string): ICourse[] {
-    console.log(searchText)
-
-    if (!searchText) {
-      return this.courses = this.courseService.getCourses()
-    }
-    return this.courses = this.courses?.filter(course => course.name.includes(searchText))
-  };
+  // public showTheSearching(searchText: string): ICourse[] {
+  //   console.log(searchText)
+  //
+  //   if (!searchText) {
+  //     return this.courses = this.courseService.getCourses()
+  //   }
+  //   return this.courses = this.courses?.filter(course => course.title.includes(searchText))
+  // };
 
 
   public showMore(): void {
@@ -53,7 +53,8 @@ export class SectionComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.courses = this.courseService.getCourses()
+    this.courseService.getCourses()
+      .subscribe(value => this.courses = value)
     console.log('init') //lifecycle hooks to understand the ordering
   };
 
