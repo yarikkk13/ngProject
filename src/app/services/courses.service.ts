@@ -14,7 +14,7 @@ export class CoursesService {
 
   public count = 3;
 
-  public coursesMock: ICourse[];
+  // public coursesMock: ICourse[];
 
   // constructor() {
   //   this.coursesMock = courses;
@@ -23,8 +23,13 @@ export class CoursesService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getCourses(): Observable<ICourse[]> {
+  public getAllCourses(): Observable<ICourse[]> {
     return this.httpClient.get<ICourse[]>(this.url)
+    // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
+  }
+
+  public getCourses(start: number, count: number): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>(this.url + `?start=${start}&count=${count}`)
     // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
   }
 
@@ -43,7 +48,7 @@ export class CoursesService {
   }
 
   public createCourse(course: ICourse): void {
-    this.coursesMock.push(course)
+    this.httpClient.post(this.url, course)
   }
 
   // public updateCourse(id: number, course: ICourse): void {
@@ -66,7 +71,7 @@ export class CoursesService {
     // this.coursesMock = this.coursesMock.filter((course) => {
     //   return course.id !== +id;
     // }
-    this.httpClient.delete(this.url+ `/` + id)
+    this.httpClient.delete(this.url + `/` + id)
 
   }
 }

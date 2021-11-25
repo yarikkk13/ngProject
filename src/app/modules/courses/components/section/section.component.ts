@@ -18,6 +18,8 @@ export class SectionComponent implements OnInit {
   public load: string = 'LOAD MORE';
   public noData: string = 'No data.Feel free to add new course';
   public searchText: string = '';
+  public start: number = 0;
+  public count: number = 4;
 
   constructor(private courseService: CoursesService) {
   }
@@ -34,7 +36,7 @@ export class SectionComponent implements OnInit {
     let result = window.prompt('Do you really want delete this course? Yes/No');
     if (result?.toLowerCase() == 'yes') {
       this.courseService.removeCourse(id)
-       this.courseService.getCourses().subscribe(value => this.courses = value)
+      this.courseService.getAllCourses().subscribe(value => this.courses = value)
     }
   };
 
@@ -49,11 +51,14 @@ export class SectionComponent implements OnInit {
 
 
   public showMore(): void {
+    this.count = this.count + 5
+    this.courseService.getCourses(this.start, this.count)
+      .subscribe(value => this.courses = value)
     console.log(this.load)
   };
 
   ngOnInit(): void {
-    this.courseService.getCourses()
+    this.courseService.getCourses(this.start, this.count)
       .subscribe(value => this.courses = value)
     console.log('init') //lifecycle hooks to understand the ordering
   };
