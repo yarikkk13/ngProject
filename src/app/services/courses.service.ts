@@ -33,6 +33,11 @@ export class CoursesService {
     // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
   }
 
+  public getCoursesByFragment(fragment: string): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>(this.url + `?textFragment=${fragment}`)
+    // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
+  }
+
   // public getCourses(): ICourse[] {
   //   return this.coursesMock;
   // }

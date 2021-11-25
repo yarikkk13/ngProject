@@ -49,6 +49,11 @@ export class SectionComponent implements OnInit {
   //   return this.courses = this.courses?.filter(course => course.title.includes(searchText))
   // };
 
+  public showTheSearching(searchText: string): void {
+    this.courseService.getCoursesByFragment(searchText)
+      .subscribe(value => this.courses = value)
+  };
+
 
   public showMore(): void {
     this.count = this.count + 5
