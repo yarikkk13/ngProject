@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { ICourse } from "../models/Course";
+import {Pipe, PipeTransform} from '@angular/core';
+import {ICourse} from "../models/Course";
 
 @Pipe({
   name: 'filter'
@@ -8,7 +8,9 @@ import { ICourse } from "../models/Course";
 export class FilterPipe implements PipeTransform {
 
   transform(array: ICourse[], textSearch: string): ICourse[] {
-    return array?.filter(course => course.title.includes(textSearch.toLowerCase()));
+    if (array.length) {
+      return array?.filter(course => course?.name?.includes(textSearch.toLowerCase()));
+    } else return array
   }
 
 }

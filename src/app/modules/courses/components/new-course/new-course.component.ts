@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { CoursesService } from "../../../../services/courses.service";
-import { ICourse } from "../../../../models/Course";
+import {CoursesService} from "../../../../services/courses.service";
+import {ICourse} from "../../../../models/Course";
 
 @Component({
   selector: 'app-new-course',
@@ -13,11 +13,12 @@ export class NewCourseComponent implements OnInit {
 
   public course: ICourse = {
     id: 0,
-    title: 'some title',
-    creationTime: new Date(2021, 10, 6),
-    duration: 0,
+    name: 'some title',
+    date: "2016-03-18T06:36:07+00:00",
+    length: 0,
     description: 'some description',
-    topRated: false
+    isTopRated: false,
+    authors: []
   };
 
   public save: string = 'Save';

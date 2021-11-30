@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { ICourse } from "../../../../models/Course";
-import { CoursesService } from "../../../../services/courses.service";
+import {ICourse} from "../../../../models/Course";
+import {CoursesService} from "../../../../services/courses.service";
 
 @Component({
   selector: 'app-section',
@@ -18,6 +18,8 @@ export class SectionComponent implements OnInit {
   public load: string = 'LOAD MORE';
   public noData: string = 'No data.Feel free to add new course';
   public searchText: string = '';
+  public start: number = 0;
+  public count: number = 4;
 
   constructor(private courseService: CoursesService) {
   }
@@ -34,26 +36,35 @@ export class SectionComponent implements OnInit {
     let result = window.prompt('Do you really want delete this course? Yes/No');
     if (result?.toLowerCase() == 'yes') {
       this.courseService.removeCourse(id)
-      this.courses = this.courseService.getCourses()
+      this.courseService.getAllCourses().subscribe(value => this.courses = value)
     }
   };
 
-  public showTheSearching(searchText: string): ICourse[] {
-    console.log(searchText)
+  // public showTheSearching(searchText: string): ICourse[] {
+  //   console.log(searchText)
+  //
+  //   if (!searchText) {
+  //     return this.courses = this.courseService.getCourses()
+  //   }
+  //   return this.courses = this.courses?.filter(course => course.title.includes(searchText))
+  // };
 
-    if (!searchText) {
-      return this.courses = this.courseService.getCourses()
-    }
-    return this.courses = this.courses?.filter(course => course.title.includes(searchText))
+  public showTheSearching(searchText: string): void {
+    this.courseService.getCoursesByFragment(searchText)
+      .subscribe(value => this.courses = value)
   };
 
 
   public showMore(): void {
+    this.count = this.count + 5
+    this.courseService.getCourses(this.start, this.count)
+      .subscribe(value => this.courses = value)
     console.log(this.load)
   };
 
   ngOnInit(): void {
-    this.courses = this.courseService.getCourses()
+    this.courseService.getCourses(this.start, this.count)
+      .subscribe(value => this.courses = value)
     console.log('init') //lifecycle hooks to understand the ordering
   };
 

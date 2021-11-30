@@ -1,8 +1,11 @@
+import { IAuthor } from "./Author";
+
 export interface ICourse {
   id: number;
-  title: string;
-  creationTime: Date;
-  duration: number;
+  name: string;
   description: string;
-  topRated: boolean;
+  isTopRated: boolean;
+  date: string;
+  authors: IAuthor[];
+  length: number;
 }

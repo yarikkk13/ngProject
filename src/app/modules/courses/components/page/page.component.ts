@@ -40,11 +40,9 @@ export class PageComponent implements OnInit, OnChanges {
   public deleteCourse: string = 'Delete';
 
   ngOnInit(): void {
-    this.log(`ngOnInit`); //lifecycle hooks to understand the ordering
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.log(`ngOnChanges`); //lifecycle hooks to understand the ordering
   }
 
   private log(msg: string) {

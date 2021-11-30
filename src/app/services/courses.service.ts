@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { courses } from "../mockArrays/mockCourses";
-import { ICourse } from "../models/Course";
+import {ICourse} from "../models/Course";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,36 +10,73 @@ import { ICourse } from "../models/Course";
 
 export class CoursesService {
 
-  public coursesMock: ICourse[];
+  private url = 'http://localhost:3004/courses'
 
-  constructor() {
-    this.coursesMock = courses;
+  public count = 3;
+
+  // public coursesMock: ICourse[];
+
+  // constructor() {
+  //   this.coursesMock = courses;
+  // }
+
+  constructor(private httpClient: HttpClient) {
   }
 
-
-  public getCourses(): ICourse[] {
-    return this.coursesMock;
+  public getAllCourses(): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>(this.url)
+    // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
   }
 
-  public getCourseById(id: string): ICourse | undefined {
-    return this.coursesMock.find(course => course.id == +id)
+  public getCourses(start: number, count: number): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>(this.url + `?start=${start}&count=${count}`)
+    // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
+  }
+
+  public getCoursesByFragment(fragment: string): Observable<ICourse[]> {
+    return this.httpClient.get<ICourse[]>(this.url + `?textFragment=${fragment}`)
+    // return this.httpClient.get<ICourse[]>(this.url+'?start=0&count='+this.count)
+  }
+
+  // public getCourses(): ICourse[] {
+  //   return this.coursesMock;
+  // }
+  //
+  // public getCourseById(id: string): ICourse | undefined {
+  //   return this.coursesMock.find(course => course.id == +id)
+  // }
+
+  public getCourseById(id: string): Observable<ICourse> {
+    console.log(this.url + `/` + id)
+    console.log(this.httpClient.get<ICourse>(this.url + `/` + id))
+    return this.httpClient.get<ICourse>(this.url + `/` + id)
   }
 
   public createCourse(course: ICourse): void {
-    this.coursesMock.push(course)
+    this.httpClient.post(this.url, course)
   }
 
+  // public updateCourse(id: number, course: ICourse): void {
+  //   this.coursesMock.forEach(function (currentCourse) {
+  //     if (currentCourse.id == +id) {
+  //       currentCourse = course
+  //     }
+  //   })
+  // }
   public updateCourse(id: number, course: ICourse): void {
-    this.coursesMock.forEach(function (currentCourse) {
-      if (currentCourse.id == +id) {
-        currentCourse = course
-      }
-    })
+    this.httpClient.patch<ICourse>(this.url + `/` + id, course)
+    // this.coursesMock.forEach(function (currentCourse) {
+    //   if (currentCourse.id == +id) {
+    //     currentCourse = course
+    //   }
+    // })
   }
 
   public removeCourse(id: string): void {
-    this.coursesMock = this.coursesMock.filter((course) => {
-      return course.id !== +id;
-    })
+    // this.coursesMock = this.coursesMock.filter((course) => {
+    //   return course.id !== +id;
+    // }
+    this.httpClient.delete(this.url + `/` + id)
+
   }
 }
