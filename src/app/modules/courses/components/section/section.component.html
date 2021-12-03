@@ -4,9 +4,8 @@
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid ps-0 form-group">
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Text to search" [(ngModel)]="searchText"
-               [ngModelOptions]="{standalone: true}" aria-label="Search">
-        <button class="btn btn-success" type="button" (click)="showTheSearching(searchText)">{{ search }}</button>
+        <input class="form-control me-2" type="search" placeholder="Text to search" (keyup)="search(getValue($event))" aria-label="Search">
+<!--        <button class="btn btn-success" type="button" (click)="showTheSearching(searchText)">{{ search }}</button>-->
       </form>
     </div>
   </nav>
