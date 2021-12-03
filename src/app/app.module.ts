@@ -10,7 +10,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { IfAuthenticatedDirective } from './directives/if-authenticated.directive';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {LoadingInterceptor} from "./interceptors/loading.interceptor";
+import {LoadingService} from "./services/loading.service";
 
 
 @NgModule({
@@ -29,7 +31,10 @@ import { HttpClientModule } from "@angular/common/http";
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    LoadingService
+  ],
   exports: [],
   bootstrap: [AppComponent]
 })
