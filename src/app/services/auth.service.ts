@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IToken} from "../models/Token";
 import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,14 @@ import {Observable} from "rxjs";
 
 export class AuthService {
 
-  private url = 'http://localhost:3004/auth/login'
-  private url2 = 'http://localhost:3004/auth/userInfo'
-  public user: any;
+  private loginUrl = 'http://localhost:3004/auth/login'
+  private checkUrl = 'http://localhost:3004/auth/userInfo'
 
   constructor(private httpClient: HttpClient) {
   }
 
   public login2(login: string, password: string): void {
-    this.httpClient.post<IToken>(this.url, {'password': password, 'login': login}).subscribe((value: IToken) => {
+    this.httpClient.post<IToken>(this.loginUrl, {'password': password, 'login': login}).subscribe((value: IToken) => {
       let {token} = value
       localStorage.setItem('token', token)
     })
@@ -32,22 +32,15 @@ export class AuthService {
     localStorage.clear()
   }
 
-  // public isAuthenticated(): boolean {
-  //   const token = localStorage.getItem('token')
-  //   return !!(token);
-  //
-  //   // const email = localStorage.getItem('email');
-  //   // const password = localStorage.getItem('password');
-  //   // return !!(email && password);
-  // }
-
-  public isAuthenticated(): boolean {
+  public isAuthenticated(): Observable<boolean> {
     const token = localStorage.getItem('token')
-    this.httpClient.post<IToken>(this.url2, {'token': token}).subscribe((value: any) => {
-      this.user = value
-    })
-    console.log(this.user.fakeToken)
-    return this.user.fakeToken == token;
+
+    return this.httpClient.post(this.checkUrl, {'token': token}).pipe(
+      map((user: any) => {
+        let fakeToken = user.fakeToken
+        return (token === fakeToken)
+      })
+    )
   }
 
   public getUserInfo(): any {
