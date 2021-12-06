@@ -12,6 +12,7 @@ export class AuthService {
 
   private loginUrl = 'http://localhost:3004/auth/login'
   private checkUrl = 'http://localhost:3004/auth/userInfo'
+  public user: any;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -44,8 +45,9 @@ export class AuthService {
   }
 
   public getUserInfo(): any {
-    const email = localStorage.getItem('email');
-    const password = localStorage.getItem('password');
-    return {email, password};
+    const token = localStorage.getItem('token');
+    return this.httpClient.post(this.checkUrl, {'token': token})
   }
+
+
 }

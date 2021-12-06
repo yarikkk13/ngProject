@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark customNavHeader">
-  <div class=" navbar-collapse">
+  <div class="navbar-collapse">
     <a class="navbar-brand me-auto " [routerLink]="['courses']"><i
       class="bi bi-play-circle-fill colorSign"></i> {{ videoCurse }}</a>
+    <p class="text-light m-1">{{user.name.last}}</p>
+    <p class="text-light m-0">{{user.name.first}}</p>
     <form>
       <button class="btn btn-dark" type="submit" [routerLink]="['login']"><i
         class="bi bi-person"></i> {{ userLogin }}</button>
