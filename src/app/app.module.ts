@@ -13,6 +13,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { LoadingInterceptor } from "./interceptors/loading.interceptor";
 import { LoadingService } from "./services/loading.service";
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { LoadingService } from "./services/loading.service";
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
