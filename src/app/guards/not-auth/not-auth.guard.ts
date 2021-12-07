@@ -12,7 +12,7 @@ export class NotAuthGuard implements CanActivate {
   constructor(private authService: AuthService) {
   }
 
-  canActivate(): Observable<boolean> | Promise<boolean> | boolean  {
+  canActivate(): Observable<boolean> {
     return this.authService.isAuthenticated()
   }
 }

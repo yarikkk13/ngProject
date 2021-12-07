@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
+import { Observable } from "rxjs";
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -16,7 +17,7 @@ describe('AuthService', () => {
 
   it('is logged in?', () => {
     service.login('email', 'password');
-    const loggedIn: boolean = service.isAuthenticated();
+    const loggedIn: Observable<boolean> = service.isAuthenticated();
     expect(loggedIn).toBeTruthy();
   });
 
@@ -35,7 +36,7 @@ describe('AuthService', () => {
   it('is logged out?', () => {
     service.login('email', 'password');
     service.logOut();
-    const loggedIn: boolean = service.isAuthenticated();
+    const loggedIn: Observable<boolean> = service.isAuthenticated();
     expect(loggedIn).toBeFalse();
   });
 

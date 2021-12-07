@@ -1,3 +1,6 @@
 <app-header></app-header>
+<ng-container *ngIf="loadingService.isLoading$ | async">
+  <div class="myLoadBar">Loading!</div>
+</ng-container>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

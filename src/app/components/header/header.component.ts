@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit {
 
   public logOff: string = 'Log off';
 
+  public user?: any;
+
   constructor(private authService: AuthService) {
+    authService.getUserInfo().subscribe((value: any) => this.user = value)
+    console.log(this.user)
   }
 
   logOut(): void {
@@ -23,6 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }
