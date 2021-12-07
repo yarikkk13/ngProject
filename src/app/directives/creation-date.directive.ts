@@ -14,7 +14,6 @@ export class CreationDateDirective implements OnInit {
 
   creationDateDirectiveFunc() {
     const courseDate = new Date(this.directivesCourse.date).getTime();
-    // const courseDate = this.directivesCourse?.creationTime.getTime();
     const currentDate = Date.now();
     const fourteenDays = 1209600000;
 

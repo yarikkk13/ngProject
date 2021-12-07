@@ -1,8 +1,10 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {IToken} from "../models/Token";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+
+import { IToken } from "../models/Token";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,6 @@ export class AuthService {
 
   private loginUrl = 'http://localhost:3004/auth/login'
   private checkUrl = 'http://localhost:3004/auth/userInfo'
-  public user: any;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -48,6 +49,5 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return this.httpClient.post(this.checkUrl, {'token': token})
   }
-
 
 }

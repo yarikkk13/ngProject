@@ -45,8 +45,4 @@ export class PageComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
   }
 
-  private log(msg: string) {
-    console.log(this.course.id + ". " + msg);
-  }
-
 }

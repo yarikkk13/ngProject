@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {LoadingService} from "../../services/loading.service";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { LoadingService } from "../../services/loading.service";
 
 @Component({
   selector: 'app-root',

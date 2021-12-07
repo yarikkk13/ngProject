@@ -18,8 +18,7 @@ export class HeaderComponent implements OnInit {
   public user?: any;
 
   constructor(private authService: AuthService) {
-
-    authService.getUserInfo().subscribe((value:any) => this.user = value)
+    authService.getUserInfo().subscribe((value: any) => this.user = value)
     console.log(this.user)
   }
 

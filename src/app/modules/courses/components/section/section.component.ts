@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {ICourse} from "../../../../models/Course";
-import {CoursesService} from "../../../../services/courses.service";
-import {Observable, Subject} from "rxjs";
-import {debounceTime, distinctUntilChanged, filter, switchMap} from "rxjs/operators";
-import {verifySupportedTypeScriptVersion} from "@angular/compiler-cli/src/typescript_support";
+import { ICourse } from "../../../../models/Course";
+import { CoursesService } from "../../../../services/courses.service";
+import { Subject } from "rxjs";
+import { debounceTime, distinctUntilChanged, filter, switchMap } from "rxjs/operators";
 
 @Component({
   selector: 'app-section',
@@ -27,9 +26,7 @@ export class SectionComponent implements OnInit {
   public count: number = 4;
 
   getValue(event: Event): string {
-    // if ((event.target as HTMLInputElement).value.length > 3)
-      return (event.target as HTMLInputElement).value;
-    // else return ''
+    return (event.target as HTMLInputElement).value;
   }
 
   search(text: string) {
@@ -54,20 +51,6 @@ export class SectionComponent implements OnInit {
       this.courseService.getAllCourses().subscribe(value => this.courses = value)
     }
   };
-
-  // public showTheSearching(searchText: string): ICourse[] {
-  //   console.log(searchText)
-  //
-  //   if (!searchText) {
-  //     return this.courses = this.courseService.getCourses()
-  //   }
-  //   return this.courses = this.courses?.filter(course => course.title.includes(searchText))
-  // };
-  // public showTheSearching(searchText: string): void {
-  //   this.courseService.getCoursesByFragment(searchText)
-  //     .subscribe(value => this.courses = value)
-  // };
-
 
   public showMore(): void {
     this.count = this.count + 5
