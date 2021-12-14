@@ -12,8 +12,6 @@ export class CoursesService {
 
   private url = 'http://localhost:3004/courses'
 
-  public count = 3;
-
   constructor(private httpClient: HttpClient) {
   }
 

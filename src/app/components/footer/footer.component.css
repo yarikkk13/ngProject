@@ -1,4 +1,9 @@
 .customFooter {
   padding-right: 5%;
-  text-align: end
-}
+  text-align: end;
+  display: block;
+  position: sticky;
+  top: 100vh;
+  color: white;
+  font-size: 0.8em;
+  background-color: black;}
