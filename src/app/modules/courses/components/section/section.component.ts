@@ -34,7 +34,7 @@ export class SectionComponent implements OnInit {
   private searchText$ = new Subject<string>();
 
   public start: number = 0;
-  public count: number = 4;
+  public count: number = 5;
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
@@ -79,10 +79,8 @@ export class SectionComponent implements OnInit {
     this.store$.dispatch(CourseActions.loadRequestAction());
 
     this.store$.select(CourseSelectors.getCourses).subscribe(
-      courses => {
-        of(courses).subscribe((value) =>
-        {console.log(value)
-          this.courses$ = value});
+      (courses) => {
+        this.courses = courses
       }
     );
 

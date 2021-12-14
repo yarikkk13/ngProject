@@ -8,7 +8,7 @@ import { courseReducer } from './reducers/courses.reducer';
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('courseStore', courseReducer),
+    StoreModule.forFeature('courses', courseReducer),
     EffectsModule.forFeature([CourseStoreEffects])
   ],
   providers: [CourseStoreEffects]
