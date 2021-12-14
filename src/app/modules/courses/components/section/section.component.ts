@@ -1,13 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {ICourse} from "../../../../models/Course";
-import {CoursesService} from "../../../../services/courses.service";
-import {Subject, Observable, pipe, of} from "rxjs";
-import {debounceTime, distinctUntilChanged, filter, switchMap, map} from "rxjs/operators";
+import { ICourse} from "../../../../models/Course";
+import { CoursesService } from "../../../../services/courses.service";
+import { Subject, Observable } from "rxjs";
+import { debounceTime, distinctUntilChanged, filter, switchMap } from "rxjs/operators";
 
-import {Store, StoreRootModule} from '@ngrx/store';
-import {CourseState} from '../../../../store/states/courses.state';
-import {IAppState} from '../../../../store/states/app.state';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../../../../store/states/app.state';
 import * as CourseActions from '../../../../store/actions/courses.actions';
 import * as CourseSelectors from '../../../../store/selectors/courses.selectors';
 
@@ -22,7 +21,6 @@ export class SectionComponent implements OnInit {
 
   public courses: ICourse[];
 
-  public courses$: ICourse[];
   public error$: Observable<any>;
   public isLoading$: Observable<boolean>;
 
@@ -72,10 +70,6 @@ export class SectionComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    // this.courseService.getCourses(this.start, this.count)
-    //   .subscribe(value => this.courses = value)
-    // console.log('init') //lifecycle hooks to understand the ordering
-
     this.store$.dispatch(CourseActions.loadRequestAction());
 
     this.store$.select(CourseSelectors.getCourses).subscribe(

@@ -1,7 +1,7 @@
-import {createSelector} from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 
-import {IAppState} from '../states/app.state';
-import {CourseState} from '../states/courses.state';
+import { IAppState } from '../states/app.state';
+import { CourseState } from '../states/courses.state';
 
 
 const CourseFeature = (state: IAppState) => {

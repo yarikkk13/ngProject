@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Actions, ofType, createEffect} from '@ngrx/effects';
-import {of as observableOf} from 'rxjs';
-import {catchError, map, switchMap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
+import { of as observableOf } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import * as courseActions from './../actions/courses.actions';
-import {CoursesService} from "../../services/courses.service";
+import { CoursesService } from "../../services/courses.service";
 
 @Injectable()
 export class CourseStoreEffects {
